@@ -1,0 +1,34 @@
+{
+    "action": {
+       "default_popup": "index.html"
+    },
+    "description": "Onbording asisstent from Iq Digital",
+    "externally_connectable": { "matches": ["*://*/*"] },
+    "manifest_version": 3,
+    "name": "OnbordingAssistent",
+    "version": "0.0.1",
+    "permissions": [
+       "tabs",
+       "activeTab",
+       "scripting",
+        "storage"
+    ],
+    "content_scripts": [
+     {
+       "matches": ["<all_urls>"],
+       "js": ["content.js", "popup.js"]
+     }
+   ],
+    "background": {
+     "service_worker": "background.js"
+   },
+    "host_permissions": [
+       "<all_urls>"
+     ],
+    "optional_host_permissions": [
+       "*://*/*"
+    ],
+    "content_security_policy": {
+       "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+ }
